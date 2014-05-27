@@ -5,9 +5,13 @@
 # Summary: Use this tool to subtract items items from a todo list and see what is left on the todo list  
 use strict;
 
-my $larger_list = shift @ARGV;
-my $smaller_list = shift @ARGV;
+my $to_process = shift @ARGV;
+my $processed = shift @ARGV;
 my $usage = "\n --usage compare_two_lists.pl <Set Of Files to Process> <A list of files that have been processed> --return A list of files that still need to be processed \n";
+
+if(scalar @ARGV < 2){
+        die $usage;
+}
 
 open F, $to_process or die $! . $usage . "\n";
 open G, $processed or die $! . $usage . "\n";
