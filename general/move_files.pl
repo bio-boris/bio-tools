@@ -5,7 +5,7 @@
 # Summary       : Move a list of files to a directory
 
 use strict;
-my $usage = "--usage move_files.pl <list_of_files> <destination>";
+my $usage = "--usage $0 <list_of_files> <destination>";
 
 if(scalar @ARGV != 2){
         die $usage,"\n";
