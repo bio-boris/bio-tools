@@ -7,10 +7,9 @@ use strict;
 
 my $to_process = $ARGV[0];
 my $processed = $ARGV[1];
-my $usage = "\n --usage compare_two_lists.pl <Set Of Files to Process> <A list of files that have been processed> --return A list of files that still need to be processed \n";
+my $usage = "--usage compare_two_lists.pl <Set Of Files to Process> <A list of files that have been processed> --return A list of files that still need to be processed \n";
 
 if(scalar @ARGV < 2){
-        print "scalar @ARGV\n";
         die $usage;
 }
 
