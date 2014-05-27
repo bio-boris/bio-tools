@@ -2,21 +2,38 @@
 # Date Modified: May 26 , 2014
 # Date Created : May 0, 2014
 # Author Boris Sadkhin
-# Summary: Use this tool to append a suffix to a list 
+# Summary: Use this tool to append a suffix to a list. Either choose STDIN or a file
+use strict;
+use Getopt::Long;
 
-my $usage = "--usage append_to_list.pl <list> <APPEND>";
+my $fh;
+my $file   ;
+my $append = $ARGV[0];
+GetOptions (
+                "f=s" => \$file,
+                "a=s"   => \$append
+           ) or die "Incorrect usage!\n";      # string
 
-if (scalar @ARGV !=2){
-        die "$usage\n";
+
+
+my $usage = "--usage append.pl -f<list|> -a<string to append>\n";
+
+if(length $append == 0 && $#ARGV ==0){
+        print $usage; exit;
 }
-my $list   = $ARGV[0];
-my $append = $ARGV[1];
 
-
-open F , $list or die $!;
-
-while(<F>){
-        chomp;
-        print "$_$append\n";
-
+if(length $file > 0 ){
+        print "About to open $file\n";
+        open F, $file or die $!, "Cannot find $file\n";
+        while(<F>){
+                chomp;
+                print "$_$append\n";
+        }
+        close F;
+}
+else{
+        while(<STDIN>){
+                chomp;
+                print "$_$append\n";
+        }
 }
