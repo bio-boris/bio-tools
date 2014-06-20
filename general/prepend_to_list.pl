@@ -8,7 +8,7 @@ use Getopt::Long;
 
 my $fh;
 my $file   ;
-my $append = $ARGV[0];
+my $prepend = $ARGV[0];
 GetOptions (
                 "f=s" => \$file,
                 "a=s"   => \$prepend
@@ -18,7 +18,7 @@ GetOptions (
 
 my $usage = "--usage prepend_to_list.pl -f<list|> -a<string to prepend>\n";
 
-if(length $append == 0 && $#ARGV ==0){
+if(length $prepend == 0 && $#ARGV ==0){
         print $usage; exit;
 }
 
