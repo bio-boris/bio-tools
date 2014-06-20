@@ -26,14 +26,12 @@ if(length $file > 0 ){
         print "About to open $file\n";
         open F, $file or die $!, "Cannot find $file\n";
         while(<F>){
-                chomp;
-                print "$_$append\n";
+                print "$_$append";
         }
         close F;
 }
 else{
         while(<STDIN>){
-                chomp;
-                print "$_$append\n";
+                print "$_$append";
         }
 }
