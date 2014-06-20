@@ -8,7 +8,7 @@ use Getopt::Long;
 
 my $fh;
 my $file   ;
-my $append = $ARGV[0];
+my $prepend = $ARGV[0];
 GetOptions (
                 "f=s" => \$file,
                 "a=s"   => \$append
