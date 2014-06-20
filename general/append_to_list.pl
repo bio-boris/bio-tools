@@ -18,7 +18,7 @@ GetOptions (
 
 my $usage = "--usage append.pl -f<list|> -a<string to append>\n";
 
-if(length $append == 0 && $#ARGV ==0){
+if(length $prepend == 0 && $#ARGV ==0){
         print $usage; exit;
 }
 
